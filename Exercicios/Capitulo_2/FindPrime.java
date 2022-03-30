@@ -1,0 +1,20 @@
+class FindPrime{
+	public static void main(String args[]){
+		int primo = 0, count = 0;
+		for(int i = 2; i <= 100; i++){
+			count = 0;
+			for(int j = 2; j < i; j++){
+				if((i%j) == 0){
+					primo = 0;
+					count = 1;
+				}
+				if(count != 1){
+					primo = i;
+				}
+			}
+			if(primo != 0){
+				System.out.println(primo + " e primo");
+			}
+		}
+	}
+}

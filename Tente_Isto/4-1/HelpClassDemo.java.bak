@@ -1,0 +1,78 @@
+//Definir as funcionalidades da classe Help
+//Ela irá exibir o menu com as opções do usuário
+//Definir se a entrada é validade
+//Definir a exibição do que foi escolhido
+class Help{
+	char entrada;
+	//Define a exibição do menu
+	void menu(){
+		System.out.println("Menu\nEscolha uma das opcoes a seguir:");
+		System.out.println("1. if\t2. switch\t3. for\t4. while\t5. do-while\t6. break\t7. continue\t q. sair");
+	}
+	//Define se a entrada do usuário é válida
+	boolean isValid(char entrada){
+		if (entrada > '0' && entrada < '8' && entrada == 'q') return true;
+		return false;
+	}
+	//Define a exibição da estrutura escolhida pelo usuário
+	void helpOn(char entrada){
+		switch (entrada){
+				case '1':
+					System.out.println("Essa e a sintaxe geral da instrucao if\n if (condicao){\n \tinstrucao\n} else{\n \tinstrucao");
+					break;
+				case '2':
+					System.out.println("Essa e a sintaxe geral da instrucao switch\nswitch (expressao){\n\tcase constante1:\n\t\t instrucao\n break;" +
+					"\n\tcase constante2\n \t\tinstrucao\n break;\n\tdefault: \n\t\tinstrucao caso nenhum dos cases seja selecionado");
+					break;
+				case '3':
+					System.out.println("Esta e a sintaxe da instrucao for");
+					System.out.println("for(inicializacao; condicao; incremento){\n\tsequencia de exprecoes\n}");
+					break;
+				case '4':
+					System.out.println("Esta e a sintaxe da instrucao while");
+					System.out.println("while(condicao){\n\tsequencia de exprecoes\n}");
+					break;
+				case '5':
+					System.out.println("Esta e a sintaxe da instrucao do-while");
+					System.out.println("do{\n\tsequencia de exprecoes\n}while(condicao);");
+					break;
+				case '6':
+					System.out.println("Esta e a sintaxe da instrucao break");
+					System.out.println("laco(condicao){ ou rotulo: laco(condicao){");
+					System.out.println("\tsequencia de instrucoes\n\tbreak ou break rotulo;\n}");
+					break;
+				case '7':
+					System.out.println("Esta e a sintaxe da instrucao continue");
+					System.out.println("laco(condicao) ou rotulo: laco(condicao){");
+					System.out.println("\tsequencia de instrucoes\n\tcontinue; ou continue rotulo;\n}");
+					break;
+				case 'q':
+					System.out.print("Saindo...");
+					break;
+			}
+	}
+}
+//Define a classe de execução do programa
+class HelpClassDemo {
+		public static void main(String args[]) throws java.io.IOException{
+			char escolha = ' ', ignore = ' ';
+			Help ajuda = new Help();
+			//Repete a execução do programa até que o caractere q seja digitado
+			while(escolha != 'q'){
+				//Exibe o menu de opções
+				ajuda.menu();
+				escolha = (char) System.in.read();
+				//Remove caracteres indesejados do buffer
+				do{
+					ignore = (char) System.in.read();
+				}while(ignore != '\n');
+				
+				//verifica se a entrada inserida é validade caso seja, imprime a informação, senão solicita que o usuário digite novamente
+				if(ajuda.isValid(escolha)){ 
+					ajuda.helpOn(escolha);
+				}else{ 
+					System.out.println("Escolha uma opcao valida");
+				}
+			}
+		}
+	}

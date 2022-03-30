@@ -1,0 +1,13 @@
+class PowOf2{
+	public static void main (String args[]){
+		
+		for(int i = 0; i < 10; i++){
+			int potencia = 0;
+			potencia++;
+			for(int j = 0; j < i; j++){
+				potencia *= 2;
+			}
+			System.out.println(potencia);
+		}
+	}
+}

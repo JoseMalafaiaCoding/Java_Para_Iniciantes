@@ -1,0 +1,23 @@
+class Cap{
+	public static void main(String args[]) throws java.io.IOException{
+		char letra = ' ',ignore = ' ';
+		while(letra != '.'){
+			System.out.println("Digite uma letra:");
+			letra = (char) System.in.read();
+			ignore = ' ';
+			while(ignore != '\n'){
+				ignore = (char) System.in.read();
+			}
+			if(letra > 64 && letra < 96){
+				letra += 32;
+				System.out.println(letra);
+			}else if (letra > 96 && letra < 129){
+				letra -= 32;
+				System.out.println(letra);
+			}else if(letra != '.'){
+				System.out.println("Valor invalido");
+			}
+			
+		}
+	}
+}

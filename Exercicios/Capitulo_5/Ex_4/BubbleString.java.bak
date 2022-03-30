@@ -1,0 +1,35 @@
+class StringSort{
+	String []stgArray;
+	
+	StringSort(String []stgArray){
+		this.stgArray = stgArray;
+	}
+	
+	String []sort(){
+		if(this.stgArray.length == 1){
+			return stgArray;
+		}
+		String hold;
+		for(int i = 0; i < stgArray.length - 1; i++){
+			for(int j = (stgArray.length - i) - 1; j > 0; j--){
+				if(stgArray[stgArray.length - j - 1].compareTo(stgArray[stgArray.length - j]) > 0){
+					hold = stgArray[stgArray.length - j];
+					stgArray[stgArray.length - j] = stgArray[stgArray.length - j - 1];
+					stgArray[stgArray.length - j - 1] = hold;
+				}
+			}
+		}
+		return stgArray;
+	}
+}
+
+class BubbleString{
+	public static void main(String args[]){
+		String sortArray[] = {"b", "a", "m", "c", "x", "f", "g"};
+		StringSort sort1 = new StringSort(sortArray);
+		sortArray = sort1.sort();
+		for(String x : sortArray){
+			System.out.println(x);
+		}
+	}
+}
