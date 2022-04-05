@@ -1,0 +1,50 @@
+class Fibonacci{
+	private int[] fiboSequence;
+	
+	Fibonacci (int length){
+		this.fiboSequence = new int[length];
+	}
+	
+	int[] getFiboSquence(){
+		return fiboSequence;
+	}
+	
+	int[] calcItFib(int num){
+		int anterior = 1, atual = 1, soma = 1, fibArray[] = new int[num + 1];
+		fibArray[0] = 1;
+		for (int i = 1; i <= num ; i++){
+			anterior = atual;
+			atual = soma;
+			soma = anterior + atual;
+			fibArray[i] = atual;
+		}
+		return fibArray;
+	}
+	
+	int calcRecFib(int range){
+		int count = 0, result = 0;
+		//Caso base retorna as 2 primeiras somas da operação
+		if(range <= 0){
+			return 0;
+		}else if(range <= 2){
+			return 1;
+		}else{
+			//Caso geral calcula todas as operações além do caso base.
+			result = calcRecFib(range - 1) + calcRecFib(range - 2);
+			System.out.println(result);
+		}
+		return result;
+	}
+	
+}
+
+class RecursiveFibo{
+	public static void main(String []args){
+		Fibonacci fib1 = new Fibonacci(5);
+		System.out.println(fib1.calcRecFib(6));
+		for(int results: fib1.getFiboSquence()){
+			System.out.println(results);
+		}
+		
+	}
+}

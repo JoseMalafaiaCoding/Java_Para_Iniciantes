@@ -86,7 +86,8 @@ class NewQueue {
             System.out.print(fila1.put(4 * (i + 1)) + ": ");
             System.out.println(fila1.get());
         }
-        System.out.println(fila1.isEmpty());
+
+        System.out.println(fila1.isEmpty() + " " + fila1.isFull());
         System.out.println(fila2.isEmpty());
     }
 }
